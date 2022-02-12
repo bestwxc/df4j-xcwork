@@ -37,4 +37,12 @@ public class XcworkException extends RuntimeException {
             return new XcworkException(t);
         }
     }
+
+    public static XcworkException repack(Throwable t, String msg) {
+        if (t instanceof XcworkException) {
+            return (XcworkException) t;
+        } else {
+            return new XcworkException(msg, t);
+        }
+    }
 }

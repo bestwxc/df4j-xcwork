@@ -9,9 +9,9 @@ public class RandomUtils {
 
     private static Logger logger = LoggerFactory.getLogger(RandomUtils.class);
 
-    private static String NUMBER = "0123456789";
-    private static String CHAR = "ABCDEFGHIJKLMOPQRSTUVWXYZ";
-    private static String NUM_CHAR = NUMBER + CHAR;
+    public final static String NUMBER = "0123456789";
+    public final static String CHAR = "ABCDEFGHIJKLMOPQRSTUVWXYZ";
+    public final static String NUM_CHAR = NUMBER + CHAR;
 
     public static String getRandomString(String from, int length) {
         Random random = new Random();

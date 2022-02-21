@@ -31,6 +31,9 @@ public class XcworkException extends RuntimeException {
      * @return
      */
     public static XcworkException repack(Throwable t) {
+        if (t == null) {
+            return new XcworkException("传入的异常为空");
+        }
         if (t instanceof XcworkException) {
             return (XcworkException) t;
         } else {
@@ -38,7 +41,14 @@ public class XcworkException extends RuntimeException {
         }
     }
 
+    public static XcworkException pack(String msg) {
+        return new XcworkException(msg);
+    }
+
     public static XcworkException repack(Throwable t, String msg) {
+        if (t == null) {
+            return new XcworkException(msg);
+        }
         if (t instanceof XcworkException) {
             return (XcworkException) t;
         } else {

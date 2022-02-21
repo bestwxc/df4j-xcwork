@@ -15,6 +15,11 @@ public class BizException extends XcworkException {
         this.errorCode = String.valueOf(errorCode.getErrorNo());
     }
 
+    public BizException(ErrorCode errorCode, String msg) {
+        super(msg);
+        this.errorCode = String.valueOf(errorCode.getErrorNo());
+    }
+
     public BizException(String errorCode) {
         this.errorCode = errorCode;
     }
@@ -32,5 +37,21 @@ public class BizException extends XcworkException {
     public BizException(String errorCode, String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
         this.errorCode = errorCode;
+    }
+
+    public static BizException pack(String errorCode, String msg) {
+        return new BizException(errorCode, msg);
+    }
+
+    public static BizException pack(ErrorCode errorCode, String msg) {
+        return new BizException(errorCode, msg);
+    }
+
+    public static BizException pack(String errorCode, String msg, Throwable cause) {
+        return new BizException(errorCode, msg, cause);
+    }
+
+    public static BizException pack(ErrorCode errorCode, String msg, Throwable cause) {
+        return new BizException(String.valueOf(errorCode.getErrorNo()), msg, cause);
     }
 }

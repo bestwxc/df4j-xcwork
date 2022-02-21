@@ -1,10 +1,16 @@
 package com.df4j.xcwork.base.res;
 
-public class Result<T, N> extends AbstractResult<T, N> {
+public class Result<T, N> implements ResultSpi<T, N> {
 
-    public Result(N errorCode, String errorMsg, T result, boolean multiple,
-                  boolean page, int total, int pageNum, int pageSize) {
-        super(errorCode, errorMsg, result, multiple, page, total, pageNum, pageSize);
+    public Result(N errorCode, String errorMsg, T result, boolean multiple, boolean page, int total, int pageNum, int pageSize) {
+        this.errorCode = errorCode;
+        this.errorMsg = errorMsg;
+        this.result = result;
+        this.multiple = multiple;
+        this.page = page;
+        this.total = total;
+        this.pageNum = pageNum;
+        this.pageSize = pageSize;
     }
 
     private N errorCode;

@@ -4,6 +4,14 @@ import java.util.List;
 
 public class MultipleResult<T, N> extends Result<List<T>, N> {
 
+    public MultipleResult() {
+        super(true, false);
+    }
+
+    public MultipleResult(boolean page) {
+        super(true, page);
+    }
+
     public MultipleResult(N errorCode, String errorMsg, List<T> result) {
         this(errorCode, errorMsg, result, false, result == null ? 0 : result.size(), 1, result == null ? 0 : result.size());
     }

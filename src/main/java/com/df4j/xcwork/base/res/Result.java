@@ -2,6 +2,24 @@ package com.df4j.xcwork.base.res;
 
 public class Result<T, N> implements ResultSpi<T, N> {
 
+    private N errorCode;
+    private String errorMsg;
+    private T result;
+    private boolean multiple = false;
+    private boolean page = false;
+    private int total = 1;
+    private int pageNum = 1;
+    private int pageSize = 1;
+
+    public Result() {
+
+    }
+
+    public Result(boolean multiple, boolean page) {
+        this.multiple = multiple;
+        this.page = page;
+    }
+
     public Result(N errorCode, String errorMsg, T result, boolean multiple, boolean page, int total, int pageNum, int pageSize) {
         this.errorCode = errorCode;
         this.errorMsg = errorMsg;
@@ -12,15 +30,6 @@ public class Result<T, N> implements ResultSpi<T, N> {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
     }
-
-    private N errorCode;
-    private String errorMsg;
-    private T result;
-    private boolean multiple = false;
-    private boolean page = false;
-    private int total = 1;
-    private int pageNum = 1;
-    private int pageSize = 1;
 
     @Override
     public N getErrorCode() {

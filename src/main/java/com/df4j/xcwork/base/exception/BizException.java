@@ -39,6 +39,10 @@ public class BizException extends XcworkException {
         this.errorCode = errorCode;
     }
 
+    public String getErrorCode() {
+        return errorCode;
+    }
+
     public static BizException pack(String errorCode, String msg) {
         return new BizException(errorCode, msg);
     }

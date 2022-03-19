@@ -37,6 +37,10 @@ public enum ErrorCode {
         return errorNo;
     }
 
+    public String getErrorCode() {
+        return String.valueOf(this.errorNo);
+    }
+
     /**
      * 通过错误号获取错误类型
      *
